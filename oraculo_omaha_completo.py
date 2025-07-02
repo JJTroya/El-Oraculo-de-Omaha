@@ -281,7 +281,7 @@ def obtener_tickers(indice):
 # SISTEMA DE CACHÉ MEJORADO CON PERSISTENCIA
 cache_precios = {}
 cache_datos_fundamentales = {}
-CACHE_EXPIRATION_MINUTES = 5
+CACHE_EXPIRATION_MINUTES = 0.1
 
 def limpiar_cache():
     """Limpia el caché expirado"""
@@ -868,6 +868,11 @@ with st.sidebar:
         value=True,
         help="Mostrar gráficos de rendimiento y análisis"
     )
+    
+    # Botón para limpiar el caché de precios
+if st.button("🔄 Actualizar Precios"):
+    cache_precios.clear()
+    st.rerun()
 
     # Número de acciones a mostrar
     num_acciones = st.slider(

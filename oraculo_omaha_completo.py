@@ -850,7 +850,7 @@ with st.sidebar:
         help="Busca por ticker o nombre de empresa"
     )
 
-   with st.sidebar:
+with st.sidebar:
     st.markdown("### ⚙️ Configuración de Datos")
 
     # Opción para usar API real

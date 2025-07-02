@@ -850,6 +850,7 @@ with st.sidebar:
         help="Busca por ticker o nombre de empresa"
     )
 
+   with st.sidebar:
     st.markdown("### ⚙️ Configuración de Datos")
 
     # Opción para usar API real
@@ -870,9 +871,9 @@ with st.sidebar:
     )
     
     # Botón para limpiar el caché de precios
-if st.button("🔄 Actualizar Precios"):
-    cache_precios.clear()
-    st.rerun()
+    if st.button("🔄 Actualizar Precios"):
+        cache_precios.clear()
+        st.rerun()
 
     # Número de acciones a mostrar
     num_acciones = st.slider(
@@ -891,7 +892,6 @@ if st.button("🔄 Actualizar Precios"):
         value=True,
         help="Incluir indicadores técnicos y fundamentales adicionales"
     )
-
     # Tema oscuro (experimental)
     tema_oscuro = st.checkbox(
         "🌙 Modo oscuro (experimental)",
